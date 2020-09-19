@@ -1,7 +1,9 @@
 package org.echocat.kata.java.part1;
 
-public class MainApp {
+import org.echocat.kata.java.part1.repository.PublicationsRepository;
 
+public class MainApp {
+    private PublicationsRepository publicationsRepository;
     public static void main(String[] args) {
 
     }

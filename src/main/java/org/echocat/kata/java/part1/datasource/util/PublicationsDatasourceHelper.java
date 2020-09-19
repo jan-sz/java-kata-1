@@ -1,11 +1,23 @@
 package org.echocat.kata.java.part1.datasource.util;
 
 import org.echocat.kata.java.part1.model.Author;
+import org.echocat.kata.java.part1.repository.AuthorsRepository;
+import org.echocat.kata.java.part1.repository.AuthorsRepositoryImpl;
+
+import java.util.ArrayList;
 import java.util.List;
 
 // I had a problem with finding a better name for this class :-/
 public class PublicationsDatasourceHelper {
     protected List<Author> findAuthors(String authorsEmails) {
-        return null;
+        AuthorsRepository authorsRepository = new AuthorsRepositoryImpl();
+        List<Author> authors = new ArrayList<>();
+        String[] authorsEmailsSeparated = authorsEmails.split(",");
+
+        for(String email : authorsEmailsSeparated) {
+            authors.add(authorsRepository.findOneByEmail(email));
+        }
+
+        return authors;
     }
 }
