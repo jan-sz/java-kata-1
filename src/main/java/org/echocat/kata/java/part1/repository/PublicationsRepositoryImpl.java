@@ -3,6 +3,7 @@ package org.echocat.kata.java.part1.repository;
 import org.echocat.kata.java.part1.datasource.PublicationsDatasource;
 import org.echocat.kata.java.part1.model.prototype.Publication;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class PublicationsRepositoryImpl implements PublicationsRepository {
@@ -29,6 +30,19 @@ public class PublicationsRepositoryImpl implements PublicationsRepository {
 
     @Override
     public List<Publication> findAllByAuthorsEmail(String email) {
-        return null;
+        List<Publication> publicationsFound = new ArrayList<>();
+
+        publicationsDatasource.getAllPublications().stream().forEach(
+                publication -> {
+                    publication.getAuthors().stream().forEach(
+                            author -> {
+                                if(author.getEmail().equals(email)){
+                                    publicationsFound.add(publication);
+                                }
+                    }
+                    );
+                }
+        );
+        return publicationsFound;
     }
 }
