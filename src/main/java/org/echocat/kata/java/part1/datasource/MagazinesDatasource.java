@@ -2,6 +2,7 @@ package org.echocat.kata.java.part1.datasource;
 
 import org.echocat.kata.java.part1.datasource.util.CSVReaderService;
 import org.echocat.kata.java.part1.datasource.util.PublicationsDatasourceHelper;
+import org.echocat.kata.java.part1.model.Author;
 import org.echocat.kata.java.part1.model.Magazine;
 import org.echocat.kata.java.part1.util.ApplicationUtil;
 import org.slf4j.Logger;
@@ -13,6 +14,8 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+// I would prefer these Datasources to not be instance objects, but rather some overally available service
+// like for example Spring Boot's beans, but I couldn't make this in time
 public class MagazinesDatasource extends PublicationsDatasourceHelper {
     private final Logger logger = LoggerFactory.getLogger(MagazinesDatasource.class);
     private List<Magazine> magazines;
@@ -49,5 +52,9 @@ public class MagazinesDatasource extends PublicationsDatasourceHelper {
             ApplicationUtil.closeApplication();
         }
         return date;
+    }
+
+    public List<Magazine> getAllMagazines () {
+        return magazines;
     }
 }
