@@ -22,4 +22,19 @@ public class Book extends Publication {
         this.authors = authors;
         this.description = description;
     }
+
+    @Override
+    public String getTitle() {
+        return this.title;
+    }
+
+    @Override
+    public String getIsbn() {
+        return this.isbn;
+    }
+
+    @Override
+    public List<Author> getAuthors() {
+        return this.authors;
+    }
 }

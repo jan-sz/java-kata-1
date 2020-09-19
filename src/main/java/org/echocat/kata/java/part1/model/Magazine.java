@@ -20,4 +20,19 @@ public class Magazine extends Publication {
         this.authors = authors;
         this.publishedAt = publishedAt;
     }
+
+    @Override
+    public String getTitle() {
+        return this.title;
+    }
+
+    @Override
+    public String getIsbn() {
+        return this.isbn;
+    }
+
+    @Override
+    public List<Author> getAuthors() {
+        return this.authors;
+    }
 }

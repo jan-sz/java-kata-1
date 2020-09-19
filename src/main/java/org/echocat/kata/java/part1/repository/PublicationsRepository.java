@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface PublicationsRepository {
     public List<Publication> findAll();
-    public List<Publication> findOneByIsbn();
-    public List<Publication> findAllByAuthorsEmail();
+    public Publication findOneByIsbn(String isbn);
+    public List<Publication> findAllByAuthorsEmail(String email);
 }
