@@ -1,6 +1,6 @@
 package org.echocat.kata.java.part1.datasource;
 
-import org.echocat.kata.java.part1.datasource.CSVReader.CSVReaderService;
+import org.echocat.kata.java.part1.datasource.util.CSVReaderService;
 import org.echocat.kata.java.part1.model.Author;
 
 import java.util.ArrayList;
@@ -19,8 +19,11 @@ public class AuthorsDatasource {
 
         List<List<String>> listOfValues = CSVReaderService.readCSVFile(CSVFilePath);
         listOfValues.stream().forEach(values -> {
-                                        //email;      firstname;     lastname
-            Author author = new Author(values.get(0), values.get(1), values.get(2));
+            Author author = new Author(
+                    values.get(0), // email
+                    values.get(1), // firstname;
+                    values.get(2)  // lastname
+            );
             authorsFromCSV.add(author);
         });
 

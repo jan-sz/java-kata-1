@@ -1,14 +1,14 @@
 package org.echocat.kata.java.part1.datasource;
 
-import org.echocat.kata.java.part1.datasource.CSVReader.CSVReaderService;
-import org.echocat.kata.java.part1.datasource.prototype.PublicationsDatasourceInterface;
-import org.echocat.kata.java.part1.model.Author;
+import org.echocat.kata.java.part1.datasource.util.CSVReaderService;
+import org.echocat.kata.java.part1.datasource.util.PublicationsDatasourceHelper;
 import org.echocat.kata.java.part1.model.Book;
+import org.echocat.kata.java.part1.model.Magazine;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class BooksDatasource implements PublicationsDatasourceInterface {
+public class BooksDatasource extends PublicationsDatasourceHelper {
     private List<Book> books;
     private String CSVFilePath = "books.csv";
 
@@ -21,17 +21,15 @@ public class BooksDatasource implements PublicationsDatasourceInterface {
 
         List<List<String>> listOfValues = CSVReaderService.readCSVFile(CSVFilePath);
         listOfValues.stream().forEach(values -> {
-                                //title;     isbn;   authors;   description
-            Book book = new Book(values.get(0), values.get(1), findAuthors(values.get(2)), values.get(3));
+            Book book = new Book(
+                    values.get(0), // title;
+                    values.get(1), // isbn;
+                    findAuthors(values.get(2)), // authors;
+                    values.get(3) // publishedAt;
+            );
             booksFromCSV.add(book);
         });
 
         return booksFromCSV;
-    }
-
-
-    @Override
-    protected List<Author> findAuthors(String authorsEmails) {
-        return null;
     }
 }

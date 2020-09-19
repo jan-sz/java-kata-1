@@ -1,4 +1,4 @@
-package org.echocat.kata.java.part1.datasource.CSVReader;
+package org.echocat.kata.java.part1.datasource.util;
 
 import com.opencsv.CSVReader;
 
