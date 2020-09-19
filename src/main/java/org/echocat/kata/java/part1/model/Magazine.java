@@ -3,8 +3,11 @@ package org.echocat.kata.java.part1.model;
 import org.echocat.kata.java.part1.model.prototype.Publication;
 import lombok.ToString;
 import lombok.Getter;
+
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 
 @Getter
 @ToString
@@ -37,6 +40,11 @@ public class Magazine extends Publication {
     }
 
     public void printToConsole() {
+        System.out.println("Type: Book");
+        System.out.println("Title: " + title);
+        System.out.println("Isbn: " + isbn);
 
+        SimpleDateFormat formatter = new SimpleDateFormat("dd-mm-yyyy", Locale.GERMANY);
+        System.out.println("Published: " + formatter.format(publishedAt));
     }
 }

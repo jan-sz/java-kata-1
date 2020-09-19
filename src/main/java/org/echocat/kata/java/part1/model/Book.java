@@ -39,6 +39,9 @@ public class Book extends Publication {
     }
 
     public void printToConsole() {
-
+        System.out.println("Type: Book");
+        System.out.println("Title: " + title);
+        System.out.println("Isbn: " + isbn);
+        System.out.println("Description: " + description);
     }
 }
