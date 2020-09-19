@@ -37,4 +37,8 @@ public class Book extends Publication {
     public List<Author> getAuthors() {
         return this.authors;
     }
+
+    public void printToConsole() {
+
+    }
 }

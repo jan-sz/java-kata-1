@@ -35,4 +35,8 @@ public class Magazine extends Publication {
     public List<Author> getAuthors() {
         return this.authors;
     }
+
+    public void printToConsole() {
+
+    }
 }

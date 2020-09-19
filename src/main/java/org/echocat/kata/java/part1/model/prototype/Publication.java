@@ -12,4 +12,5 @@ public abstract class Publication {
     public abstract String getTitle ();
     public abstract String getIsbn ();
     public abstract List<Author> getAuthors();
+    public abstract void printToConsole();
 }

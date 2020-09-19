@@ -4,14 +4,15 @@ import org.echocat.kata.java.part1.repository.PublicationsRepository;
 import org.echocat.kata.java.part1.repository.PublicationsRepositoryImpl;
 
 public class MainApp {
-    private static PublicationsRepository publicationsRepository;
 
     public static void main(String[] args) {
-        publicationsRepository = new PublicationsRepositoryImpl();
+        PublicationsRepository publicationsRepository = new PublicationsRepositoryImpl();
 
+        printAllPublications(publicationsRepository);
     }
-    private void printAllPublications() {
 
+    protected static void printAllPublications(PublicationsRepository publicationsRepository) {
+        publicationsRepository.findAll().forEach(publication -> publication.printToConsole());
     };
 
     protected static String getHelloWorldText() {
