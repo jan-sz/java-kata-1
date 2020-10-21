@@ -17,7 +17,7 @@ public class PublicationsDatasource {
     public PublicationsDatasource () {
         this.publications = new ArrayList<>();
         this.magazinesDatasource = new MagazinesDatasource();
-        this.booksDatasource = new BooksDatasource();
+        this.booksDatasource = BooksDatasource.getInstance();
 
         publications.addAll(booksDatasource.getAllBooks());
         publications.addAll(magazinesDatasource.getAllMagazines());

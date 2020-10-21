@@ -7,7 +7,6 @@ import org.echocat.kata.java.part1.repository.AuthorsRepositoryImpl;
 import java.util.ArrayList;
 import java.util.List;
 
-// I had a problem with finding a better name for this class :-/
 public class PublicationsDatasourceHelper {
     protected List<Author> findAuthors(String authorsEmails) {
         AuthorsRepository authorsRepository = new AuthorsRepositoryImpl();
